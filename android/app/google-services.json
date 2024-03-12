@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415999656518",
+    "project_id": "myuecommerce-ed069",
+    "storage_bucket": "myuecommerce-ed069.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415999656518:android:e57eb81195cc5e8a984047",
+        "android_client_info": {
+          "package_name": "com.example.myucommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415999656518-3fo4ihkserbhk4dpri11ojosn8o4r08b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9doG2V3xGr4N6vq0RU0gqXXWfAsL7oL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415999656518-3fo4ihkserbhk4dpri11ojosn8o4r08b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
