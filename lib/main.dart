@@ -27,7 +27,7 @@ void main() async {
   Hive.init(path);
   // You can provide a [subDir] where the boxes should be stored.
   await Hive.initFlutter();
-  await Hive.openBox('orders');
+  await Hive.openBox('order');
   var user = FirebaseAuth.instance.currentUser;
   if (user == null) {
     islogin = false;

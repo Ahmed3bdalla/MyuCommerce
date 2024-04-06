@@ -24,4 +24,8 @@ class ExploreCubit extends Cubit<ExploreStates> {
       emit(DataFailure(errMessage: "$e"));
     }
   }
+
+  getSectionsProducts({required String sectionName}) async {
+    await FirebaseFirestore.instance.collection(sectionName).get();
+  }
 }

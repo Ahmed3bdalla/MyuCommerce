@@ -20,7 +20,6 @@ class ExplorePage extends StatelessWidget {
       if (state is DataSuccess) {
         lproducts = state.productlist;
       } else if (state is DataFailure) {
-        // showSnackBar(context, state.errMessage);
         Get.snackbar('Error', state.errMessage);
       }
     }, builder: (context, state) {
@@ -48,6 +47,10 @@ class ExplorePage extends StatelessWidget {
                 leading: Icons.category, title: "Animals", ontap: () {}),
             CustomListTile(
                 leading: Icons.category, title: "Micro Biology", ontap: () {}),
+            CustomListTile(
+                leading: Icons.category,
+                title: "Statistics & cs",
+                ontap: () {}),
           ]),
         ),
         appBar: AppBar(
@@ -148,7 +151,6 @@ class ExplorePage extends StatelessWidget {
             child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 0.6, crossAxisCount: 2),
-                // scrollDirection: Axis.horizontal,
                 itemCount: lproducts.length,
                 itemBuilder: (context, i) {
                   return InkWell(
@@ -159,13 +161,13 @@ class ExplorePage extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       margin: const EdgeInsets.all(8),
-                      color: Colors.grey[200],
-                      // width: Get.width / 2,
+                      color: kSeconderyColor,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                                height: 200,
+                                height: Get.height / 4,
                                 width: 200,
                                 child: Image.network(lproducts[i].pic)),
                             Column(
@@ -179,11 +181,11 @@ class ExplorePage extends StatelessWidget {
                                   Text(
                                     lproducts[i].disc,
                                     maxLines: 1,
-                                    style: const TextStyle(fontSize: 15),
+                                    style: const TextStyle(fontSize: 14),
                                   ),
                                   CustomText(
                                     text: '\$${lproducts[i].price}',
-                                    size: 22,
+                                    size: 20,
                                     color: kPrimaryColor,
                                   ),
                                 ]),

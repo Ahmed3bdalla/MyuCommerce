@@ -82,7 +82,7 @@ class ProductDetielsPage extends StatelessWidget {
                               horizontal: 30, vertical: 10)),
                       onPressed: () {
                         BlocProvider.of<CardCubit>(context)
-                            .addToCard(context, product);
+                            .addToCart(context, product);
                       },
                       child: const Text(
                         "Add",

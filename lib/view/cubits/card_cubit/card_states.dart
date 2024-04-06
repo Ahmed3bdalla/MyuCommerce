@@ -13,3 +13,4 @@ class AddedFailureState extends CardStates {
 class CheckoutInProgressState extends CardStates {}
 class SummitionState extends CardStates {}
 class SubtractionState extends CardStates {}
+class DeleteProductState extends CardStates {}

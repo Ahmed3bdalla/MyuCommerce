@@ -23,6 +23,9 @@ class CartPage extends StatelessWidget {
         BlocProvider.of<CardCubit>(context).getTotalPrice();
       } else if (state is SubtractionState) {
         BlocProvider.of<CardCubit>(context).getTotalPrice();
+      } else if (state is DeleteProductState) {
+        BlocProvider.of<CardCubit>(context).getCartproducts();
+        BlocProvider.of<CardCubit>(context).getTotalPrice();
       }
       return Scaffold(
           body: Column(
@@ -42,12 +45,16 @@ class CartPage extends StatelessWidget {
                       BlocProvider.of<CardCubit>(context).sub(i);
                     },
                     quantity: list[i]['quantity'].toString(),
+                    del: () {
+                      BlocProvider.of<CardCubit>(context)
+                          .deleteProductFromCart(key: list[i]['key']);
+                    },
                   );
                 }),
           ),
           Container(
             padding: const EdgeInsets.all(10),
-            color: Colors.grey[200],
+            color: kSeconderyColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

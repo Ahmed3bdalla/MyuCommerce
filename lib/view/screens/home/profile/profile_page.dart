@@ -42,19 +42,11 @@ class ProfilePage extends StatelessWidget {
                 return null;
               }),
           CustomListTile(
-              leading: Icons.shopping_basket,
-              title: "Shipping Address",
-              ontap: () {
-                return null;
-              }),
-          CustomListTile(
               leading: Icons.history,
               title: "Order History",
               ontap: () {
                 return null;
               }),
-          CustomListTile(
-              leading: Icons.credit_card, title: "Cards", ontap: () {}),
           CustomListTile(
               leading: Icons.notifications,
               title: "Notifications",

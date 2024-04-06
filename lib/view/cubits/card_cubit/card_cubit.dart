@@ -12,8 +12,9 @@ class CardCubit extends Cubit<CardStates> {
   CardCubit() : super(InitialState());
 
   List<Map<String, dynamic>> list = [];
-  var box = Hive.box('orders');
-  Future<void> addToCard(context, ProductModel productModel) async {
+  var box = Hive.box('order');
+  //Add items to cart
+  Future<void> addToCart(context, ProductModel productModel) async {
     emit(LoadingState());
     try {
       if (list.isEmpty) {
@@ -47,7 +48,7 @@ class CardCubit extends Cubit<CardStates> {
       emit(AddedFailureState(message: '$e'));
     }
   }
-
+  //get All cart Products
   List<Map<String, dynamic>> mylist = [];
   getCartproducts() {
     mylist = [];
@@ -62,6 +63,7 @@ class CardCubit extends Cubit<CardStates> {
           'pic': current['pic'],
           'price': current['price'],
           'id': current['id'],
+          'key': e,
           'quantity': current['quantity']
         };
       }).toList();
@@ -91,7 +93,7 @@ class CardCubit extends Cubit<CardStates> {
     mylist = [];
     emit(CheckoutInProgressState());
   }
-
+  // save order in (firebase)
   saveOrder(List<Map<String, dynamic>> list, double total) async {
     // var random = Random().nextInt(1000000);
     await FirebaseFirestore.instance.collection('orders').add({
@@ -100,17 +102,23 @@ class CardCubit extends Cubit<CardStates> {
       "dateTime": DateTime.now(),
     });
   }
-
+//  decrease quantity  of an item in the cart
   sum(int index) {
     mylist[index]['quantity'] += 1;
     emit(SummitionState());
   }
-
+  // decrease quantity  of an item in the cart
   sub(int index) {
     if (mylist[index]['quantity'] == 1) {
     } else {
       mylist[index]['quantity']--;
       emit(SummitionState());
     }
+  }
+
+  //delete product from cart
+  deleteProductFromCart({required int key}) async {
+    await box.delete(key);
+    emit(DeleteProductState());
   }
 }
