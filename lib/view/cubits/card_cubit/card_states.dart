@@ -11,3 +11,5 @@ class AddedFailureState extends CardStates {
   AddedFailureState({required this.message});
 }
 class CheckoutInProgressState extends CardStates {}
+class SummitionState extends CardStates {}
+class SubtractionState extends CardStates {}

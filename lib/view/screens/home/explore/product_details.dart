@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:myucommerce/helper/constants.dart';
-import 'package:myucommerce/view/cubits/card_cubit/card_States.dart';
+import 'package:myucommerce/view/cubits/card_cubit/card_states.dart';
 import 'package:myucommerce/view/cubits/card_cubit/card_cubit.dart';
 
 import '../../../../model/product_model.dart';

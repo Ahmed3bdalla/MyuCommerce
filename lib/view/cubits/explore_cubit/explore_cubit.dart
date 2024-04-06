@@ -8,24 +8,18 @@ import '../../../model/product_model.dart';
 class ExploreCubit extends Cubit<ExploreStates> {
   ExploreCubit() : super(InitialState());
   CollectionReference productsCollection =
-      FirebaseFirestore.instance.collection(kChemistryP);
+      FirebaseFirestore.instance.collection(kAllProducts);
   List<ProductModel> products = [];
   getProducts() async {
     emit(LoadingState());
     try {
-      await productsCollection.get().then((value) {
-        products = [];
-        for (var i in value.docs) {
-          products.add(ProductModel.fromjson(i.data() as Map<String, dynamic>));
+      productsCollection.snapshots().listen((event) {
+        for (var doc in event.docs) {
+          products.add(ProductModel.fromjson(doc));
         }
+        emit(DataSuccess(productlist: products));
+        // print(products);
       });
-      // productsCollection.snapshots().listen((event) {
-      //   for (var doc in event.docs) {
-      //     products.add(ProductModel.fromjson(doc));
-      //   }
-      // });
-      // print(products);
-      emit(DataSuccess(productlist: products));
     } catch (e) {
       emit(DataFailure(errMessage: "$e"));
     }

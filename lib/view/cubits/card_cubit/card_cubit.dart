@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:myucommerce/view/cubits/card_cubit/card_States.dart';
+import 'package:myucommerce/view/cubits/card_cubit/card_states.dart';
 
 import '../../../model/product_model.dart';
 
@@ -12,7 +12,7 @@ class CardCubit extends Cubit<CardStates> {
   CardCubit() : super(InitialState());
 
   List<Map<String, dynamic>> list = [];
-  var box = Hive.box('data');
+  var box = Hive.box('orders');
   Future<void> addToCard(context, ProductModel productModel) async {
     emit(LoadingState());
     try {
@@ -22,7 +22,8 @@ class CardCubit extends Cubit<CardStates> {
           'disc': productModel.disc,
           'price': productModel.price,
           'pic': productModel.pic,
-          'id': FirebaseAuth.instance.currentUser!.uid
+          'id': FirebaseAuth.instance.currentUser!.uid,
+          'quantity': productModel.quantity
         });
       } else {
         for (int i = 0; i < list.length; i++) {
@@ -35,7 +36,8 @@ class CardCubit extends Cubit<CardStates> {
           'disc': productModel.disc,
           'price': productModel.price,
           'pic': productModel.pic,
-          'id': FirebaseAuth.instance.currentUser!.uid
+          'id': FirebaseAuth.instance.currentUser!.uid,
+          'quantity': productModel.quantity
         });
       }
       Get.snackbar('Success', 'Added to cart');
@@ -60,10 +62,9 @@ class CardCubit extends Cubit<CardStates> {
           'pic': current['pic'],
           'price': current['price'],
           'id': current['id'],
+          'quantity': current['quantity']
         };
       }).toList();
-      // print(list.where((element) =>
-      //     element["id"] == FirebaseAuth.instance.currentUser!.uid));
       mylist = list
           .where((element) =>
               element["id"] == FirebaseAuth.instance.currentUser!.uid)
@@ -78,7 +79,7 @@ class CardCubit extends Cubit<CardStates> {
   getTotalPrice() {
     totalPrice = 0;
     for (int i = 0; i < mylist.length; i++) {
-      totalPrice += double.parse(mylist[i]['price']);
+      totalPrice += double.parse(mylist[i]['price']) * mylist[i]['quantity'];
       // print(totalPrice);
     }
   }
@@ -98,5 +99,18 @@ class CardCubit extends Cubit<CardStates> {
       "total": total,
       "dateTime": DateTime.now(),
     });
+  }
+
+  sum(int index) {
+    mylist[index]['quantity'] += 1;
+    emit(SummitionState());
+  }
+
+  sub(int index) {
+    if (mylist[index]['quantity'] == 1) {
+    } else {
+      mylist[index]['quantity']--;
+      emit(SummitionState());
+    }
   }
 }

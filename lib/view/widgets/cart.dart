@@ -7,18 +7,16 @@ import 'custom_text.dart';
 class Cart extends StatelessWidget {
   const Cart(
       {super.key,
-      required this.disc,
       required this.name,
       required this.pic,
       required this.price,
       required this.sum,
       required this.sub,
-      });
+      required this.quantity});
   final String name;
   final String price;
-  final String disc;
   final String pic;
-  final int quantity = 1;
+  final String quantity;
   final Function() sum;
   final Function() sub;
 
@@ -60,7 +58,7 @@ class Cart extends StatelessWidget {
                     children: [
                       InkWell(onTap: sub, child: const Icon(Icons.remove)),
                       Text(
-                        "$quantity",
+                        quantity,
                         style: const TextStyle(fontSize: 18),
                       ),
                       InkWell(onTap: sum, child: const Icon(Icons.add)),

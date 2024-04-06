@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:myucommerce/view/cubits/card_cubit/card_States.dart';
+import 'package:myucommerce/view/cubits/card_cubit/card_states.dart';
 import 'package:myucommerce/view/cubits/card_cubit/card_cubit.dart';
 
 import '../../../../helper/constants.dart';
@@ -19,6 +19,10 @@ class CartPage extends StatelessWidget {
         BlocProvider.of<CardCubit>(context).getTotalPrice();
       } else if (state is CheckoutInProgressState) {
         list.clear();
+      } else if (state is SummitionState) {
+        BlocProvider.of<CardCubit>(context).getTotalPrice();
+      } else if (state is SubtractionState) {
+        BlocProvider.of<CardCubit>(context).getTotalPrice();
       }
       return Scaffold(
           body: Column(
@@ -28,12 +32,16 @@ class CartPage extends StatelessWidget {
                 itemCount: list.length,
                 itemBuilder: (context, i) {
                   return Cart(
-                    disc: list[i]['disc'],
                     name: list[i]['name'],
                     pic: list[i]['pic'],
                     price: list[i]['price'].toString(),
-                    sum: () {},
-                    sub: () {},
+                    sum: () {
+                      BlocProvider.of<CardCubit>(context).sum(i);
+                    },
+                    sub: () {
+                      BlocProvider.of<CardCubit>(context).sub(i);
+                    },
+                    quantity: list[i]['quantity'].toString(),
                   );
                 }),
           ),
