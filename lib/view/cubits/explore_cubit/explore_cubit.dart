@@ -7,8 +7,10 @@ import '../../../model/product_model.dart';
 
 class ExploreCubit extends Cubit<ExploreStates> {
   ExploreCubit() : super(InitialState());
+
   CollectionReference productsCollection =
       FirebaseFirestore.instance.collection(kAllProducts);
+
   List<ProductModel> products = [];
   getProducts() async {
     emit(LoadingState());
@@ -25,7 +27,18 @@ class ExploreCubit extends Cubit<ExploreStates> {
     }
   }
 
-  getSectionsProducts({required String sectionName}) async {
-    await FirebaseFirestore.instance.collection(sectionName).get();
+  List<ProductModel> productOfSection = [];
+  getSectionsProducts({required String collectionName}) async {
+    emit(LoadingState());
+    productOfSection = [];
+    FirebaseFirestore.instance
+        .collection(collectionName)
+        .snapshots()
+        .listen((event) {
+      for (var doc in event.docs) {
+        productOfSection.add(ProductModel.fromjson(doc));
+      }
+      emit(SectionDataState(productlist: productOfSection));
+    });
   }
 }

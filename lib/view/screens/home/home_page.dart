@@ -35,14 +35,6 @@ class _BNBCounterState extends State<BNBCounter> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        // appBar: AppBar(
-        //   centerTitle: true,
-        //   title: const Text(
-        //     'MyuCommerce',
-        //   ),
-        //   backgroundColor: Colors.white,
-        //   foregroundColor: kPrimaryColor,
-        // ),
         bottomNavigationBar: BottomNavigationBar(
             unselectedIconTheme: const IconThemeData(color: Colors.black),
             currentIndex: counter,
@@ -62,14 +54,6 @@ class _BNBCounterState extends State<BNBCounter> {
                 ),
                 icon: Icon(Icons.mouse_outlined),
               ),
-              // BottomNavigationBarItem(
-              //   label: "*",
-              //   activeIcon: Text(
-              //     'Saved',
-              //     style: TextStyle(color: kPrimaryColor, fontSize: 20),
-              //   ),
-              //   icon: Icon(Icons.favorite),
-              // ),
               BottomNavigationBarItem(
                 label: "*",
                 activeIcon: Text(

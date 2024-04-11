@@ -10,6 +10,10 @@ class DataSuccess extends ExploreStates {
   final List<ProductModel> productlist;
   DataSuccess({required this.productlist});
 }
+class SectionDataState extends ExploreStates {
+  final List<ProductModel> productlist;
+  SectionDataState({required this.productlist});
+}
 
 class DataFailure extends ExploreStates {
   String errMessage;
