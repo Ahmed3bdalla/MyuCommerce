@@ -97,8 +97,9 @@ class CardCubit extends Cubit<CardStates> {
   saveOrder(List<Map<String, dynamic>> list, double total) async {
     // var random = Random().nextInt(1000000);
     await FirebaseFirestore.instance.collection('orders').add({
-      FirebaseAuth.instance.currentUser!.uid: list,
-      "total": total,
+      'order': list,
+      "id":FirebaseAuth.instance.currentUser!.uid,
+      "total": total.toString(),
       "dateTime": DateTime.now(),
     });
   }

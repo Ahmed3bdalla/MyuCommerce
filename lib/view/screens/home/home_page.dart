@@ -19,7 +19,6 @@ class _BNBCounterState extends State<BNBCounter> {
   int counter = 0;
   List<Widget> screens = [
     ExplorePage(),
-    // const SavedPage(),
     CartPage(),
     const ProfilePage(),
   ];
@@ -43,32 +42,20 @@ class _BNBCounterState extends State<BNBCounter> {
                 counter = value;
               });
             },
-            selectedFontSize: 22,
+            selectedFontSize: 16,
+            unselectedFontSize: 14,
             selectedItemColor: kPrimaryColor,
             items: const [
               BottomNavigationBarItem(
-                label: "*",
-                activeIcon: Text(
-                  'Explore',
-                  style: TextStyle(color: kPrimaryColor, fontSize: 20),
-                ),
-                icon: Icon(Icons.mouse_outlined),
+                label: "Explore",
+                icon: Icon(Icons.home),
               ),
               BottomNavigationBarItem(
-                label: "*",
-                activeIcon: Text(
-                  'Cart',
-                  style: TextStyle(color: kPrimaryColor, fontSize: 20),
-                ),
+                label: "Cart",
                 icon: Icon(Icons.shopping_bag),
               ),
               BottomNavigationBarItem(
-                  label: "*",
-                  activeIcon: Text(
-                    'Account',
-                    style: TextStyle(color: kPrimaryColor, fontSize: 20),
-                  ),
-                  icon: Icon(Icons.person)),
+                  label: "Account", icon: Icon(Icons.person)),
             ]),
         body: screens.elementAt(counter));
   }

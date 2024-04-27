@@ -45,7 +45,9 @@ class ExplorePage extends StatelessWidget {
                   Get.to(() => SectionsProducts());
                 }),
             CustomListTile(
-                leading: Icons.category, title: "Plant", ontap: () {
+                leading: Icons.category,
+                title: "Plant",
+                ontap: () {
                   BlocProvider.of<ExploreCubit>(context)
                       .getSectionsProducts(collectionName: kPlantP);
                   Get.to(() => SectionsProducts());
@@ -59,17 +61,13 @@ class ExplorePage extends StatelessWidget {
                   Get.to(() => SectionsProducts());
                 }),
             CustomListTile(
-                leading: Icons.category, title: "Animals", ontap: () {}),
-            CustomListTile(
-                leading: Icons.category, title: "Micro Biology", ontap: () {
+                leading: Icons.category,
+                title: "Micro Biology",
+                ontap: () {
                   BlocProvider.of<ExploreCubit>(context)
                       .getSectionsProducts(collectionName: kMicroBiologyP);
                   Get.to(() => SectionsProducts());
                 }),
-            CustomListTile(
-                leading: Icons.category,
-                title: "Statistics & cs",
-                ontap: () {}),
           ]),
         ),
         appBar: AppBar(
