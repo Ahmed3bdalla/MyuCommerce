@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -47,7 +45,7 @@ class RegisterPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               SizedBox(
-                height: Get.height * 0.03,
+                height: Get.height * 0.01,
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 20.0),
@@ -57,16 +55,16 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 20.0),
                 child: Text(
-                  'Hello ',
+                  'Hello',
                 ),
               ),
               SizedBox(
-                height: Get.height * 0.03,
+                height: Get.height * 0.01,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20),
@@ -86,13 +84,13 @@ class RegisterPage extends StatelessWidget {
                           hintText: 'ID',
                           obscureText: false),
                       SizedBox(
-                        height: Get.height * 0.02,
+                        height: Get.height * 0.01,
                       ),
                       MyTextField(
                           icon: const Icon(Icons.person),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter email';
+                              return 'Please enter Username';
                             }
                             return null;
                           },
@@ -100,7 +98,7 @@ class RegisterPage extends StatelessWidget {
                           hintText: 'Username',
                           obscureText: false),
                       SizedBox(
-                        height: Get.height * 0.02,
+                        height: Get.height * 0.01,
                       ),
                       // Email
                       MyTextField(
@@ -115,7 +113,7 @@ class RegisterPage extends StatelessWidget {
                           hintText: 'Email',
                           obscureText: false),
                       SizedBox(
-                        height: Get.height * 0.02,
+                        height: Get.height * 0.01,
                       ),
 
                       /// password
@@ -152,12 +150,9 @@ class RegisterPage extends StatelessWidget {
                               ))
                         ],
                       ),
-                      SizedBox(
-                        height: Get.height * 0.01,
-                      ),
+                      SizedBox(height: Get.height * 0.003),
 
                       /// Register Button
-
                       MyButton(
                           onTap: () async {
                             if (formkey.currentState!.validate()) {
