@@ -47,7 +47,7 @@ class MyOrdersPage extends StatelessWidget {
                                   ListView.builder(
                                       shrinkWrap: true, //important
                                       itemCount:
-                                          orders[i]['order']?.length ?? 0,
+                                          orders[i]['order']?.length,
                                       itemBuilder: (context, index) {
                                         return SizedBox(
                                           child: Text(orders[i]['order'][index]

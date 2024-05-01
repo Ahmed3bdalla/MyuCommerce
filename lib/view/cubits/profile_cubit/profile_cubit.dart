@@ -26,21 +26,6 @@ class ProfileCubit extends Cubit<ProfileStates> {
     }
   }
 
-  // Future addNewProduct(
-  //     {required String name,
-  //     required String disc,
-  //     required String price,
-  //     required String pic,
-  //     required int quantity}) async {
-  //   FirebaseFirestore.instance.collection(kAllProducts).add({
-  //     "name": name,
-  //     "disc": disc,
-  //     "price": price,
-  //     "pic": pic,
-  //     "quantity": quantity
-  //   });
-  // }
-
   CollectionReference orderRef =
       FirebaseFirestore.instance.collection('orders');
   List<Map<String, dynamic>> orders = [];

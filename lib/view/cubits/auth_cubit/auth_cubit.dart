@@ -39,8 +39,8 @@ class AuthCubit extends Cubit<AuthStates> {
         password: password,
       )
           .then((user) async {
-        await addUsertofirestore(
-            UserModel(name: username, email: email, id: id, userid: user.user!.uid));
+        await addUsertofirestore(UserModel(
+            name: username, email: email, id: id, userid: user.user!.uid));
       });
       emit(RegisterSuccess());
     } on FirebaseAuthException catch (e) {

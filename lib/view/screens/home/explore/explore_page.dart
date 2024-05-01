@@ -33,7 +33,7 @@ class ExplorePage extends StatelessWidget {
         drawer: Drawer(
           child: Column(children: [
             SizedBox(
-              height: Get.height / 30,
+              height: Get.height / 15,
             ),
             const CustomText(text: "Sections", size: 22, color: kPrimaryColor),
             CustomListTile(

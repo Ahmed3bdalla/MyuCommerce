@@ -37,12 +37,6 @@ class ProfilePage extends StatelessWidget {
                 currentAccountPicture: Image.asset('images/logo.jpg')),
           ),
           CustomListTile(
-              leading: Icons.edit,
-              title: "Edit Profile",
-              ontap: () {
-                return null;
-              }),
-          CustomListTile(
               leading: Icons.people,
               title: "who we are",
               ontap: () {
