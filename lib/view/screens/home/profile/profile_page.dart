@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:myucommerce/view/cubits/profile_cubit/profile_cubit.dart';
 import 'package:myucommerce/view/cubits/profile_cubit/profile_states.dart';
 import 'package:myucommerce/view/screens/home/profile/my_orders_page.dart';
-
+import 'package:myucommerce/view/screens/home/profile/who_we_are_page.dart';
 import '../../../../helper/constants.dart';
 import '../../../widgets/custom_listtile.dart';
 import '../../../widgets/custom_text.dart';
@@ -23,24 +23,25 @@ class ProfilePage extends StatelessWidget {
               if (state is LoadingState) {}
             },
             child: UserAccountsDrawerHeader(
-                decoration: const BoxDecoration(color: kPrimaryColor),
-                accountName: CustomText(
-                  text: BlocProvider.of<ProfileCubit>(context).userModel.name,
-                  size: 20,
-                  color: Colors.white,
-                ),
-                accountEmail: CustomText(
-                  text: BlocProvider.of<ProfileCubit>(context).userModel.email,
-                  size: 18,
-                  color: Colors.white,
-                ),
-                currentAccountPicture: Image.asset('images/logo.jpg')),
+              decoration: const BoxDecoration(color: kPrimaryColor),
+              accountName: CustomText(
+                text: BlocProvider.of<ProfileCubit>(context).userModel.name,
+                size: 20,
+                color: Colors.white,
+              ),
+              accountEmail: CustomText(
+                text: BlocProvider.of<ProfileCubit>(context).userModel.email,
+                size: 18,
+                color: Colors.white,
+              ),
+              // currentAccountPicture: Image.asset(kLogo)
+            ),
           ),
           CustomListTile(
               leading: Icons.people,
               title: "who we are",
               ontap: () {
-                return null;
+                Get.to(() => const WhoWeArePage());
               }),
           CustomListTile(
               leading: Icons.history,
@@ -54,13 +55,16 @@ class ProfilePage extends StatelessWidget {
               title: "Log Out",
               ontap: () async {
                 try {
-                  FirebaseAuth.instance.signOut().then((value) {
-                    Get.offAllNamed('/');
-                  });
+                  FirebaseAuth.instance.signOut();
+                  Get.offAllNamed('/');
                 } catch (e) {
                   Get.snackbar('Error', '$e');
                 }
               }),
+          const CustomText(
+              text: "Supervisor Dr. Yasser Fouda",
+              size: 18,
+              color: kPrimaryColor)
         ],
       )),
     );

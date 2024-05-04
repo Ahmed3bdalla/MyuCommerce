@@ -31,6 +31,7 @@ class LoginPage extends StatelessWidget {
         },
         child: Scaffold(
           resizeToAvoidBottomInset: true,
+          backgroundColor: Colors.white,
           body: ListView(
             children: [
               SizedBox(
@@ -58,7 +59,7 @@ class LoginPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 20.0),
                 child: Text(
-                  'Welcome Back Catchy',
+                  'Welcome Back',
                 ),
               ),
               SizedBox(
@@ -76,6 +77,9 @@ class LoginPage extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter email';
+                            } else if (!RegExp(r'\S+@\S+\.\S+')
+                                .hasMatch(value)) {
+                              return "Enter a valid Email";
                             }
                             return null;
                           },
@@ -90,7 +94,7 @@ class LoginPage extends StatelessWidget {
                       MyTextField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter email';
+                              return 'Please enter Password';
                             }
                             return null;
                           },

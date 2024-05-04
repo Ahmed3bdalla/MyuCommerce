@@ -32,6 +32,7 @@ class RegisterPage extends StatelessWidget {
           }
         },
         child: Scaffold(
+          backgroundColor: Colors.white,
           resizeToAvoidBottomInset: true,
           body: ListView(
             children: [
