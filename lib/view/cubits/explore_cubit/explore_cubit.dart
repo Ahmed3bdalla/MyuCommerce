@@ -16,6 +16,7 @@ class ExploreCubit extends Cubit<ExploreStates> {
     emit(LoadingState());
     try {
       productsCollection.snapshots().listen((event) {
+        products = [];
         for (var doc in event.docs) {
           products.add(ProductModel.fromjson(doc));
         }
@@ -30,15 +31,19 @@ class ExploreCubit extends Cubit<ExploreStates> {
   List<ProductModel> productOfSection = [];
   getSectionsProducts({required String collectionName}) async {
     emit(LoadingState());
-    productOfSection = [];
-    FirebaseFirestore.instance
-        .collection(collectionName)
-        .snapshots()
-        .listen((event) {
-      for (var doc in event.docs) {
-        productOfSection.add(ProductModel.fromjson(doc));
-      }
-      emit(SectionDataState(productlist: productOfSection));
-    });
+    try {
+      FirebaseFirestore.instance
+          .collection(collectionName)
+          .snapshots()
+          .listen((event) {
+        productOfSection = [];
+        for (var doc in event.docs) {
+          productOfSection.add(ProductModel.fromjson(doc));
+        }
+        emit(SectionDataState(productlist: productOfSection));
+      });
+    } catch (e) {
+      emit(DataFailure(errMessage: "$e"));
+    }
   }
 }

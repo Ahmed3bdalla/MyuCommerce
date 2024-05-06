@@ -25,15 +25,14 @@ class WhoWeArePage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: const [
-                Text(
-                  "يهدف موقعنا الي أن يوفر لك مستلزماتك ؛ كما أنها تقوم بتوفير مجموعة فائقة الجودة كما انه يوفر لك اسعار مناسبة لجميع فئات المجتمع من عطور وحقائب وساعات .",
+                Text("يهدف موقعنا الي أن يوفر لك مستلزماتك الدراسية لكل الأقسام ؛ كما أنها تقوم بتوفير مجموعة فائقة الجودة كما انه يوفر لك اسعار مناسبة حرصا علي تعرضك لاي مصدر غير مناسب خارج جامعتك",
                   textDirection: TextDirection.rtl,
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  "ويسعي موقعنا الي انا يتميز عن اي اخر وذلك من خلال :",
+                  "ويسعي موقعنا الي انا يتميز عن اي مصدر خارج الجامعه وذلك من خلال :",
                   textDirection: TextDirection.rtl,
                 ),
                 SizedBox(

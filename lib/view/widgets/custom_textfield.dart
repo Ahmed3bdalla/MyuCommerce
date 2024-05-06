@@ -21,7 +21,6 @@ class MyTextField extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         obscureText: obscureText,
         decoration: InputDecoration(
-          fillColor: Colors.purple.withOpacity(0.1),
           prefixIcon: icon,
           hintText: hintText,
           border: const OutlineInputBorder(

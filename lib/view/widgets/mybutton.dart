@@ -21,7 +21,7 @@ class MyButton extends StatelessWidget {
           ),
         ),
         onPressed: onTap,
-        child: Text(text),
+        child: Text(text,style:const TextStyle(color: Colors.white),),
       ),
     );
   }
