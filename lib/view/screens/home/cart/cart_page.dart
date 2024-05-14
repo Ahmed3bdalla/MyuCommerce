@@ -76,7 +76,7 @@ class CartPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: kPrimaryColor,
+                        backgroundColor: kPrimaryColor,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 18)),
                     onPressed: () {
