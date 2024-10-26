@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:myucommerce/model/product_model.dart';
+import 'package:myucommerce/helper/model/product_model.dart';
 import 'package:myucommerce/view/cubits/explore_cubit/explore_cubit.dart';
 import 'package:myucommerce/view/cubits/explore_cubit/explore_state.dart';
 

@@ -22,15 +22,15 @@ class ProfilePage extends StatelessWidget {
             listener: (context, state) {
               if (state is LoadingState) {}
             },
-            child: UserAccountsDrawerHeader(
-              decoration: const BoxDecoration(color: kPrimaryColor),
+            child: const UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: kPrimaryColor),
               accountName: CustomText(
-                text: BlocProvider.of<ProfileCubit>(context).userModel.name,
+                text: "",
                 size: 20,
                 color: Colors.white,
               ),
               accountEmail: CustomText(
-                text: BlocProvider.of<ProfileCubit>(context).userModel.email,
+                text: "",
                 size: 18,
                 color: Colors.white,
               ),
@@ -61,10 +61,7 @@ class ProfilePage extends StatelessWidget {
                   Get.snackbar('Error', '$e');
                 }
               }),
-          const CustomText(
-              text: "Supervisor Dr. Yasser Fouda",
-              size: 18,
-              color: kPrimaryColor)
+          const CustomText(text: "Supervisor Dr. Yasser Fouda", size: 18, color: kPrimaryColor)
         ],
       )),
     );

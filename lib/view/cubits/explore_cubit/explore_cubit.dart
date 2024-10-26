@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myucommerce/helper/constants.dart';
 import 'package:myucommerce/view/cubits/explore_cubit/explore_state.dart';
 
-import '../../../model/product_model.dart';
+import '../../../helper/model/product_model.dart';
 
 class ExploreCubit extends Cubit<ExploreStates> {
   ExploreCubit() : super(InitialState());

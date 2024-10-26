@@ -13,8 +13,8 @@ class MyButton extends StatelessWidget {
       height: 55,
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(kPrimaryColor),
-          shape: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(kPrimaryColor),
+          shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),

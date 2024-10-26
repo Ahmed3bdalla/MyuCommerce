@@ -6,7 +6,7 @@ import 'package:myucommerce/view/cubits/explore_cubit/explore_cubit.dart';
 import 'package:myucommerce/view/cubits/explore_cubit/explore_state.dart';
 import 'package:myucommerce/view/screens/home/explore/sections_product.dart';
 
-import '../../../../model/product_model.dart';
+import '../../../../helper/model/product_model.dart';
 import '../../../widgets/custom_listtile.dart';
 import '../../../widgets/custom_text.dart';
 import 'product_details.dart';

@@ -1,4 +1,4 @@
-import 'package:myucommerce/model/product_model.dart';
+import 'package:myucommerce/helper/model/product_model.dart';
 
 abstract class ExploreStates {}
 
