@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myucommerce/view/cubits/auth_cubit/auth_states.dart';
 
-import '../../../model/user_model.dart';
+import '../../../helper/model/user_model.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
   AuthCubit() : super(InitialState());

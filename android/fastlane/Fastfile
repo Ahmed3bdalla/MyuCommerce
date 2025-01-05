@@ -1,0 +1,17 @@
+default_platform(:android)
+
+platform :android do
+  desc "Lane for firebase distribution"
+  lane :firebase_distribution do
+    sh "flutter clean"
+    sh "flutter build apk --release"
+    firebase_app_distribution(
+      app: "1:415999656518:android:e57eb81195cc5e8a984047",
+      firebase_cli_token: "1//035tk1IwEHwKRCgYIARAAGAMSNwF-L9IrR-4LqaNHPs2D_zVGzjHNk5zQe53qV9JUqIO0DCYPopS4dbZWgAU9d2GpYNyH-fgF1XU",
+      release_notes: "This is a release note",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk",
+      # android_artifact_type: "APK",
+      testers: "elmotex2468@gmail.com",
+    )
+  end
+end

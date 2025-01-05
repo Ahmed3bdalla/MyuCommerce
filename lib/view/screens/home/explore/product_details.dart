@@ -5,7 +5,7 @@ import 'package:myucommerce/helper/constants.dart';
 import 'package:myucommerce/view/cubits/card_cubit/card_states.dart';
 import 'package:myucommerce/view/cubits/card_cubit/card_cubit.dart';
 
-import '../../../../model/product_model.dart';
+import '../../../../helper/model/product_model.dart';
 import '../../../widgets/custom_text.dart';
 
 class ProductDetielsPage extends StatelessWidget {

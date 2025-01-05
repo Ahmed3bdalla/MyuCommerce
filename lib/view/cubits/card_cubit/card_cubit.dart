@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:myucommerce/view/cubits/card_cubit/card_states.dart';
 
-import '../../../model/product_model.dart';
+import '../../../helper/model/product_model.dart';
 
 class CardCubit extends Cubit<CardStates> {
   CardCubit() : super(InitialState());
